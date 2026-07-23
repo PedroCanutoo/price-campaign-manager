@@ -1,13 +1,19 @@
 {
-  "name": "mercado-livre-campanhas",
+  "name": "price-campaign-manager",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Campaign management system with automatic price updates using the Mercado Livre API.",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mercado-livre",
+    "automation",
+    "campaigns",
+    "nodejs"
+  ],
+  "author": "Pedro Canuto",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
