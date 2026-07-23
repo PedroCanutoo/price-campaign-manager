@@ -1,7 +1,7 @@
 {
   "name": "price-campaign-manager",
   "version": "1.0.0",
-  "description": "Campaign management system with automatic price updates using the Mercado Livre API.",
+  "description": "Campaign management system with automatic price updates using the Mercado Livre API. - Davi Tartler",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
