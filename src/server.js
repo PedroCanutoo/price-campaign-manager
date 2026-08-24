@@ -1,5 +1,8 @@
 const app = require("./app");
 const config = require("./config/app.config");
+const initializeDatabase = require("./database/init.database");
+
+initializeDatabase();
 
 app.listen(config.port, () => {
   console.log(`Servidor executando em http://localhost:${config.port}`);
