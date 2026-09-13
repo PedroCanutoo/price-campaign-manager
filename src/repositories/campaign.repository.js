@@ -37,8 +37,48 @@ function create(campaign) {
   return findById(result.lastInsertRowid);
 }
 
+function update(id, campaign) {
+  const statement = db.prepare(`
+    UPDATE campaigns
+    SET
+      name = ?,
+      discount_percentage = ?,
+      start_time = ?,
+      end_time = ?,
+      enabled = ?,
+      updated_at = CURRENT_TIMESTAMP
+    WHERE id = ?
+  `);
+
+  const result = statement.run(
+    campaign.name,
+    campaign.discountPercentage,
+    campaign.startTime,
+    campaign.endTime,
+    campaign.enabled,
+    id
+  );
+
+  if (result.changes === 0) {
+    return null;
+  }
+
+  return findById(id);
+}
+
+function remove(id) {
+  const result = db.prepare(`
+    DELETE FROM campaigns
+    WHERE id = ?
+  `).run(id);
+
+  return result.changes > 0;
+}
+
 module.exports = {
   findAll,
   findById,
-  create
+  create,
+  update,
+  remove
 };

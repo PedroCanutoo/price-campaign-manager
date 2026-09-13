@@ -41,10 +41,41 @@ function removeProduct(req, res) {
   return res.status(204).send();
 }
 
+function updateCampaign(req, res) {
+  const campaign = campaignService.updateCampaign(
+    req.params.id,
+    req.body
+  );
+
+  if (!campaign) {
+    return res.status(404).json({
+      success: false,
+      message: "Campanha não encontrada."
+    });
+  }
+
+  return res.json(campaign);
+}
+
+function deleteCampaign(req, res) {
+  const deleted = campaignService.deleteCampaign(req.params.id);
+
+  if (!deleted) {
+    return res.status(404).json({
+      success: false,
+      message: "Campanha não encontrada."
+    });
+  }
+
+  return res.status(204).send();
+}
+
 module.exports = {
   listCampaigns,
   getCampaign,
   createCampaign,
   addProduct,
-  removeProduct
+  removeProduct,
+  updateCampaign,
+  deleteCampaign
 };

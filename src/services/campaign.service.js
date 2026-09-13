@@ -30,10 +30,20 @@ function removeProductFromCampaign(campaignId, productId) {
   return campaignProductRepository.removeProduct(campaignId, productId);
 }
 
+function updateCampaign(id, campaignData) {
+  return campaignRepository.update(id, campaignData);
+}
+
+function deleteCampaign(id) {
+  return campaignRepository.remove(id);
+}
+
 module.exports = {
   getAllCampaigns,
   getCampaignById,
   createCampaign,
   addProductToCampaign,
-  removeProductFromCampaign
+  removeProductFromCampaign,
+  updateCampaign,
+  deleteCampaign
 };

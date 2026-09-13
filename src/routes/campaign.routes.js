@@ -10,5 +10,7 @@ router.post("/:id/products/:productId", campaignController.addProduct);
 router.delete("/:id/products/:productId", campaignController.removeProduct);
 
 router.get("/:id", campaignController.getCampaign);
+router.put("/:id", campaignController.updateCampaign);
+router.delete("/:id", campaignController.deleteCampaign);
 
 module.exports = router;
